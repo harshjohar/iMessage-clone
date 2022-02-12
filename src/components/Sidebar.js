@@ -5,7 +5,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { auth, db } from "../firebase";
 import { ChatButton } from "./ChatButton";
-
+import { BsPencilSquare, BsSearch  } from "react-icons/bs";
+import {ImExit} from "react-icons/im"
 export const Sidebar = () => {
     const [user] = useAuthState(auth);
 
@@ -26,17 +27,24 @@ export const Sidebar = () => {
         )
     );
     return (
-        <div>
-            <button className="bg-red-100" onClick={addChat}>
-                Add a chat
-            </button>
-            <button onClick={logout} className="bg-green-200">
-                Sign out
-            </button>
+        <div className="w-full">
+            <div className="w-full h-12 bg-gray-400 flex items-center justify-between px-4">
+                <div className="flex items-center space-x-3">
+                    <BsSearch />
+                    <input
+                        type="text"
+                        placeholder="Search"
+                        className="hidden lg:inline-flex bg-transparent placeholder:text-gray-900 outline-none"
+                    />
+                </div>
+                <BsPencilSquare onClick={addChat} className="cursor-pointer"/> 
+            <ImExit onClick={logout} className="cursor-pointer" />
+            </div>
+
 
             <div>
                 {chats?.docs.map((doc) => (
-                    <ChatButton id={doc.id} data={doc.data()} />
+                    <ChatButton id={doc.id} data={doc.data()} key={doc.id} />
                 ))}
             </div>
         </div>

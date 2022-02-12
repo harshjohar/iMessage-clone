@@ -6,23 +6,23 @@ import { auth } from "./firebase";
 import { Main } from "./components/Main";
 import { useSelector } from "react-redux";
 import { selectChatId } from "./features/chatSlice";
+import { LandingPage } from "./components/LandingPage";
 
 function App() {
-    const [session] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const chatId = useSelector(selectChatId);
-    if (!session) {
+    if (!user) {
         return <Login />;
     }
 
-
     return (
-        <div className="flex h-screen w-screen">
-            <div className="w-[20%] bg-gray-200">
+        <div className="flex h-screen w-screen overflow-hidden">
+            <div className="w-[25%] bg-gray-200">
                 <Sidebar />
             </div>
-            {chatId && <div className="w-[80%] bg-red-200">
-              <Main/>
-            </div>}
+            <div className="w-[80%] ">
+                {chatId ? <Main /> : <LandingPage/>}
+            </div>
         </div>
     );
 }
