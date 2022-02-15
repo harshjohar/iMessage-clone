@@ -17,12 +17,10 @@ function App() {
 
     return (
         <div className="flex h-screen w-screen overflow-hidden">
-            <div className="w-[25%] bg-gray-200">
+            <div className="w-[25%] bg-gray-200 h-full">
                 <Sidebar />
             </div>
-            <div className="w-[80%] ">
-                {chatId ? <Main /> : <LandingPage/>}
-            </div>
+            <div className="w-[75%]">{chatId ? <Main /> : <LandingPage />}</div>
         </div>
     );
 }
