@@ -14,7 +14,7 @@ export const Sidebar = () => {
         const receiver = prompt("Enter the email of that person?");
         addDoc(collection(db, "chats"), {
             users: [user.email, receiver],
-        }).then((id) => console.log(id));
+        }).then(() => {});
     };
     const logout = () => {
         signOut(auth);

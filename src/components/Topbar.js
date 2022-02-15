@@ -4,7 +4,7 @@ export const Topbar = ({ name }) => {
     return (
         <div className="flex items-center justify-between p-6 bg-gray-300 pb-2">
             <p>
-                <span className="font-bold">To: </span>
+                <span className="font-bold hidden sm:inline">To: </span>
                 {name}
             </p>
 

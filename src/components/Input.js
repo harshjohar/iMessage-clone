@@ -13,7 +13,7 @@ export const Input = ({chatRef, user}) => {
             message: message, 
             timestamp: serverTimestamp(),
             user: user.uid 
-        }).then(()=>console.log("first")).catch((err)=>alert("An error occurred: "+err.message))
+        }).then(()=>{}).catch((err)=>alert("An error occurred: "+err.message))
 
         setMessage("");
     };

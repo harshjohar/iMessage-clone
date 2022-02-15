@@ -23,7 +23,7 @@ export const Main = () => {
     return (
         <div className="w-full h-full bg-gray-100 relative">
             <Topbar name={name}/>
-            <Chat chatRef={chatRef}/>
+            <Chat chatRef={chatRef} user={user}/>
             <Input chatRef={chatRef} user={user}/>
         </div>
     );
